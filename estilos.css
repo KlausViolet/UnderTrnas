@@ -231,6 +231,13 @@ section {
     margin: 0 !important;
 }
 
+.column-USIPT iframe.instagram-media,
+.column-Event article iframe.instagram-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
 /*         COLUMNAS (Editorial)    */
 article {
     display: flex;
