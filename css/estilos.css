@@ -188,7 +188,21 @@ section {
 /*         COLUMNAS (INDEX)            */
 .column-USIPT {
     width: 50%;
+    display: flex;
+    justify-content: center;
 }
+.column-USIPT article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.column-USIPT blockquote.instagram-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+
 .column-NEWs {
     width: 25%;
     p{
@@ -200,16 +214,28 @@ section {
 
 .column-Event{
     width: 20%;
-} 
-    .column-Event article {
+}
+.column-Event article {
     display: flex;
     flex-direction: column;
     gap: 1.25em;
 }
-
 .column-Event article img {
     width: 100%;
     height: auto;
+}
+.column-Event article blockquote.instagram-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+
+.column-USIPT iframe.instagram-media,
+.column-Event article iframe.instagram-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
 }
 
 /*         COLUMNAS (Editorial)    */
@@ -805,9 +831,17 @@ footer {
     }
     
 
-    .column-USIPT article {
-        text-align: center;
-    }
+.column-USIPT article {
+    text-align: center;
+}
+
+.column-USIPT blockquote.instagram-media {
+    display: block;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+}
     
     .GPares {
         display: block;
@@ -930,31 +964,40 @@ footer {
     }
     
     .column-USIPT article {
-        text-align: center;
-    }
-    
-    .GPares {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .column-Event article {
-        display: flex;
-        flex-direction: row;
-        gap: 1em;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .event1,
-    .event2 {
-        width: 48% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        flex-shrink: 0 !important;
-    }
+    text-align: center;
+}
+
+.column-USIPT blockquote.instagram-media {
+    display: block;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.column-Event article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.column-Event article img {
+    width: 48% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+}
+
+.column-Event article blockquote.instagram-media {
+    width: 48% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+    margin: 0 !important;
+}
 
     form {
         margin: 0 auto;
@@ -976,52 +1019,50 @@ footer {
 
 /*Tablets horizontal*/
 @media only screen and (min-device-width:901px) and (orientation: landscape){
-    {
-        body{
-            font-size: 14px;
+    body{
+        font-size: 14px;
+    }
+    header{
+        flex-direction: column;
+        gap: .33em;
+        height: 5em;
+        justify-content: center;
+        padding: 0 .5em;
+
+        h1 a{
+            height: .75em;
+            width: 1.5em;
         }
-        header{
-            flex-direction: column;
-            gap: .33em;
-            height: 5em;
-            justify-content: center;
-            padding: 0 .5em;
+        nav ul{
+            gap: 1em;
+            li{
+                flex: 1;
 
-            h1 a{
-                height: .75em;
-                width: 1.5em;
-            }
-            nav ul{
-                gap: 1em;
-                li{
-                    flex: 1;
-
-                    a{
-                        display: block;
-                        font-size: 1em;
-                        line-height: 1;
-                        padding: 0 .5em;
-                        text-align: center;
-                    }
+                a{
+                    display: block;
+                    font-size: 1em;
+                    line-height: 1;
+                    padding: 0 .5em;
+                    text-align: center;
                 }
             }
         }
-        section:not(#inicio){
-            padding: 5em 1em 1em;
-             blockquote{
-                width: 100%;
-             }
-        }
-        .column-USIP{
-            width: 50%;
-        }
-         .column-NEWs, .column-Event{
-            width: 20%;
-                .event1 .event2{
-            width: 25%;
-                }
-        }
-
+    }
+    section:not(#inicio){
+        padding: 5em 1em 1em;
+         blockquote{
+            width: 100%;
+         }
+    }
+    .column-USIPT{
+        width: 50%;
+    }
+    .column-NEWs, .column-Event{
+        width: 20%;
+    }
+    .column-Event article img,
+    .column-Event article blockquote.instagram-media{
+        width: 25%;
     }
 }
 /*Pantallas gigantes*/
