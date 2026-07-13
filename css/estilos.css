@@ -1018,10 +1018,7 @@ footer {
 }
 
 /*Tablets horizontal*/
-@media only screen and (min-device-width:901px) and (orientation: landscape){
-    body{
-        font-size: 14px;
-    }
+@media only screen and (min-width:901px) and (max-width:1200px){
     header{
         flex-direction: column;
         gap: .33em;
