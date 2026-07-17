@@ -20,27 +20,34 @@
     </nav>
 </header>
 <main>
-    <form action="">
+    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="access_key" value="02aff086-566f-4f7c-8f38-357f33fc5c2f">
         <fieldset>
             <legend>Tlatōntli tlaxōchia (Florece la Furia) <br><p>Comparte y registra encuentros culturales y movimientos colectivos para nutrir este archivo vivo: aquí se documenta la resistencia trans y la fuerza NB.</p></legend>
+            
             <section id="Personal">
                 <h3>Información Personal</h3>
-                    <label for="name">Nombre</label><input type="text" id="name" name="name" placeholder="Escribe tu nombre elegido" required class="campo">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Escribe tu nombre elegido" required class="campo">
+                
                 <div class="campo-group">
                     <div>
-                    <label for="gender">Género</label><input type="text" id="gender" name="gender" placeholder="Género con el que te identificas" required class="campo">
+                        <label for="gender">Género</label>
+                        <input type="text" id="gender" name="gender" placeholder="Género con el que te identificas" required class="campo">
                     </div>
                     <div>
                         <p>¿Ya hiciste la corrección legal?</p>
-                            <ul>
-                                <li><input type="radio" id="si" name="radioOption"><label for="si">Sí</label></li>
-                                <li><input type="radio" id="no" name="radioOption"><label for="no">No</label></li>
-                            </ul>
+                        <ul>
+                            <li><input type="radio" id="si" name="correccion_legal" value="si"><label for="si">Sí</label></li>
+                            <li><input type="radio" id="no" name="correccion_legal" value="no"><label for="no">No</label></li>
+                        </ul>
                     </div>
                 </div>                    
+                
                 <div class="campo-group">
                     <div>
-                        <label for="nationality">País</label><input type="text" id="nationality" name="nationality" placeholder="Escribe tu nacionalidad" required class="campo">
+                        <label for="nationality">País</label>
+                        <input type="text" id="nationality" name="nationality" placeholder="Escribe tu nacionalidad" required class="campo">
                     </div>
                     <div>
                         <label for="alcaldia">Alcaldía donde radicas</label>
@@ -66,82 +73,93 @@
                     </div>
                 </div>
             </section>
+
             <section id="contact">
                 <h3>Contacto</h3>
                 <div class="campo-group">
                     <div>
-                        <label for="telefono">Número teléfono</label><input type="number" id="telefono" name="telefono" placeholder="55000000000" required class="campo" >
+                        <label for="telefono">Número teléfono</label>
+                        <input type="number" id="telefono" name="telefono" placeholder="55000000000" required class="campo" >
                     </div>
                     <div>
-                        <label for="email">Correo</label><input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required class="campo">
+                        <label for="email">Correo</label>
+                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required class="campo">
                     </div>
                 </div>
+                
                 <div class="redes-sociales">                     
-                        <div class="red-social-item">
-                            <input type="checkbox" id="check-instagram" name="instagram"><label for="check-instagram" class="red-label"><img src="rss/1.png" alt="Instagram"></label>
-                            <input type="url" class="input-red-social input-instagram" name="link-instagram" placeholder="Tu link de Instagram">
-                        </div>
-                        <div class="red-social-item">
-                            <input type="checkbox" id="check-tiktok" name="tiktok"><label for="check-tiktok" class="red-label"><img src="rss/2.png" alt="TikTok"></label>
-                            <input type="url" class="input-red-social input-tiktok" name="link-tiktok" placeholder="Tu link de TikTok">
-                        </div>
-                        <div class="red-social-item">
-                            <input type="checkbox" id="check-bluesky" name="bluesky"><label for="check-bluesky" class="red-label"><img src="rss/3.png" alt="Bluesky"></label>
-                            <input type="url" class="input-red-social input-bluesky" name="link-bluesky" placeholder="Tu link de Bluesky">
-                        </div>
-                        <div class="red-social-item">
-                            <input type="checkbox" id="check-facebook" name="red-facebook"><label for="check-facebook" class="red-label"><img src="rss/4.png" alt="Vimeo"></label>
-                            <input type="url" class="input-red-social input-facebook" name="link-facebook" placeholder="Tu link de Facebook">
-                        </div>
+                    <div class="red-social-item">
+                        <input type="checkbox" id="check-instagram" name="usa_instagram"><label for="check-instagram" class="red-label"><img src="rss/1.png" alt="Instagram"></label>
+                        <input type="url" class="input-red-social input-instagram" name="link_instagram" placeholder="Tu link de Instagram">
                     </div>
-                <label for="Pagina-Web">Link de pagina-Web</label><input type="url" id="pagina-Web" name="pagina-Web" placeholder="https://tu-pagina-Web.com">
+                    <div class="red-social-item">
+                        <input type="checkbox" id="check-tiktok" name="usa_tiktok"><label for="check-tiktok" class="red-label"><img src="rss/2.png" alt="TikTok"></label>
+                        <input type="url" class="input-red-social input-tiktok" name="link_tiktok" placeholder="Tu link de TikTok">
+                    </div>
+                    <div class="red-social-item">
+                        <input type="checkbox" id="check-bluesky" name="usa_bluesky"><label for="check-bluesky" class="red-label"><img src="rss/3.png" alt="Bluesky"></label>
+                        <input type="url" class="input-red-social input-bluesky" name="link_bluesky" placeholder="Tu link de Bluesky">
+                    </div>
+                    <div class="red-social-item">
+                        <input type="checkbox" id="check-facebook" name="usa_facebook"><label for="check-facebook" class="red-label"><img src="rss/4.png" alt="Vimeo"></label>
+                        <input type="url" class="input-red-social input-facebook" name="link_facebook" placeholder="Tu link de Facebook">
+                    </div>
+                </div>
+                
+                <!-- Corregido: Se agregó el atributo name -->
+                <label for="Pagina-Web">Link de pagina-Web</label>
+                <input type="url" id="pagina-Web" name="pagina_web" placeholder="https://tu-pagina-Web.com">
             </section>
 
-<section id="Ficha de evento">
-  <h3>Tu Ficha de evento</h3>
+            <section id="Ficha de evento">
+                <h3>Tu Ficha de evento</h3>
 
-  <label for="event">Nombre del evento</label>
-  <input type="text" id="event" name="event" placeholder="Nombre de tu evento" required class="campo">
-   <div>
-<div class="campo-group">
-    <div>
-      <label for="fecha-inicio">Fecha de inicio</label>
-      <input type="date" id="fecha-inicio" name="fecha-inicio" required class="campo">
-    </div>
-    <div>
-      <label for="hora-inicio">Hora de inicio</label>
-      <input type="time" id="hora-inicio" name="hora-inicio" required class="campo">
-    </div>
-  </div>
+                <label for="event">Nombre del evento</label>
+                <input type="text" id="event" name="nombre_evento" placeholder="Nombre de tu evento" required class="campo">
+                
+                <div class="campo-group">
+                    <div>
+                        <label for="fecha-inicio">Fecha de inicio</label>
+                        <input type="date" id="fecha-inicio" name="fecha_inicio" required class="campo">
+                    </div>
+                    <div>
+                        <label for="hora-inicio">Hora de inicio</label>
+                        <input type="time" id="hora-inicio" name="hora_inicio" required class="campo">
+                    </div>
+                </div>
 
-  <div class="campo-group">
-    <div>
-      <label for="fecha-fin">Fecha de término</label>
-      <input type="date" id="fecha-fin" name="fecha-fin" required class="campo">
-    </div>
-    <div>
-      <label for="hora-fin">Hora de término</label>
-      <input type="time" id="hora-fin" name="hora-fin" required class="campo">
-    </div>
-  </div>
-  <label for="descripcion">Descripción</label>
-  <textarea id="descripcion" name="descripcion" class="campo" placeholder="Escribe un bloque de texto en esta área"></textarea>
+                <div class="campo-group">
+                    <div>
+                        <label for="fecha-fin">Fecha de término</label>
+                        <input type="date" id="fecha-fin" name="fecha_fin" required class="campo">
+                    </div>
+                    <div>
+                        <label for="hora-fin">Hora de término</label>
+                        <input type="time" id="hora-fin" name="hora_fin" required class="campo">
+                    </div>
+                </div>
+                
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion_evento" class="campo" placeholder="Escribe un bloque de texto en esta área"></textarea>
 
-  <p>Tu evento está principalmente dirigido a:</p>
-  <ul>
-    <li><input id="transfem" type="checkbox">
-      <label for="transfem"><span></span>Transfeminidades</label></li>
-    <li><input id="transmas" type="checkbox">
-      <label for="transmas"><span></span>Transmasculinidades</label></li>
-    <li><input id="NB" type="checkbox">
-      <label for="NB"><span></span>No binarie</label></li>
-  </ul>
-</section>
+                <p>Tu evento está principalmente dirigido a:</p>
+                <ul>
+                    <li><input id="transfem" name="dirigido_transfem" type="checkbox" value="si">
+                        <label for="transfem"><span></span>Transfeminidades</label></li>
+                    <li><input id="transmas" name="dirigido_transmas" type="checkbox" value="si">
+                        <label for="transmas"><span></span>Transmasculinidades</label></li>
+                    <li><input id="NB" name="dirigido_nb" type="checkbox" value="si">
+                        <label for="NB"><span></span>No binarie</label></li>
+                </ul>
+            </section>
 
             <section id="SubirMultimedia">
                 <h3>Sube tu material</h3>
-                <label for="multimedia-principal">Ficha de evento principal *</label><input type="file" id="multimedia-principal" name="multimedia-principal" required>
-                <label for="multimedia-zip">Archivo ZIP (si deseas subir mas arcivos)</label><input type="file" id="multimedia-zip" name="multimedia-zip" accept=".zip">
+                <label for="multimedia-principal">Ficha de evento principal *</label>
+                <input type="file" id="multimedia-principal" name="archivo_principal" required>
+                
+                <label for="multimedia-zip">Archivo ZIP (si deseas subir mas arcivos)</label>
+                <input type="file" id="multimedia-zip" name="archivo_zip" accept=".zip">
             </section>
         </fieldset>
         <button type="submit" class="boton-enviar">ENVIAR</button>
