@@ -751,6 +751,42 @@ footer {
     transform: scale(1.15);
 }
 /* ===================================
+        NOTA IMPORTANTE (dentro de guías)
+   =================================== */
+.nota-importante {
+    background: var(--RT);
+    border-left: 5px solid var(--LNB);
+    border-radius: 0.5em;
+    padding: 1em 1.5em;
+    margin-top: 1.5em;
+}
+
+.nota-importante p {
+    margin-bottom: 0.75em;
+}
+
+.nota-importante p:last-child {
+    margin-bottom: 0;
+}
+
+.nota-importante blockquote {
+    font-style: italic;
+    border-left: 3px solid var(--LNB);
+    padding-left: 1em;
+    margin: 1em 0;
+    color: #5b2d8a;
+}
+/* ===================================
+        PIE DE PÁGINA
+   =================================== */
+footer {
+    font-family: var(--font-text);
+    border-top: 2px solid #000;
+    margin-top: 2em;
+    padding: 1em;
+    text-align: center;
+}
+/* ===================================
         Media Queries
    =================================== */
 /*Smartphones*/
