@@ -719,6 +719,38 @@ footer {
     text-align: center;
 }
 /* ===================================
+        CONTACTO EN GUÍAS
+   =================================== */
+.contacto-guia {
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.contacto-guia > p {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 0.75em;
+}
+
+.contacto-iconos {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.contacto-iconos img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.contacto-iconos a:hover img {
+    transform: scale(1.15);
+}
+/* ===================================
         Media Queries
    =================================== */
 /*Smartphones*/
