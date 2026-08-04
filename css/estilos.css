@@ -17,6 +17,7 @@
     --degT: linear-gradient(to bottom, var(--AT), var(--B), var(--RT));
     --degTF: linear-gradient(to bottom, var(--LTF), var(--RTF), var(--T));}
 *{margin: 0; padding: 0; box-sizing: border-box;}
+html, body {overflow-x: hidden; max-width: 100%;}
 body{
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -127,59 +128,6 @@ section {
 .column-Mapa{width: 63%;}
 .column-NEWs{width: 28%;}
 .column-Mapa, .column-NEWs {min-width: 0;}
-/* EVENTOS (CARRUSEL) */
-.eventos-section{
-    position: relative;
-    flex-direction: column;
-    width: 100%;
-    margin: 2em 0;
-    padding-right: 3em;
-    min-width: 0;
-    max-width: 100%;}
-.eventos-section h2 {text-align: center;}
-.eventos-carrusel{
-    display: flex;
-    gap: 1.5em;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 1em;
-    min-width: 0;}
-.evento-card{
-    flex: 0 0 auto;
-    width: 320px;
-    scroll-snap-align: start;
-    background: #fff;
-    border-radius: 1em;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;}
-.evento-img {
-    width: 100%;
-    height: auto;
-    border-radius: 1em;}
-.carrusel-flecha {
-    position: absolute;
-    top: 55%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 2.5em;
-    height: 2.5em;
-    background: var(--LNB);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8em;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    transition: background 0.3s ease;}
-.carrusel-flecha:hover {background: var(--T);}
-.eventos-carrusel::-webkit-scrollbar {height: 8px;}
-.eventos-carrusel::-webkit-scrollbar-thumb {background: var(--LNB); border-radius: 4px;}
 /* Editorial */
 article {
     display: flex;
@@ -193,8 +141,16 @@ article {
     flex-direction: column;
     gap: 1em;}
 .columna-30{width: 30%;}
+.eventos-section h2 {text-align: center;}
+.evento-card blockquote.instagram-media,
+.evento-card iframe.instagram-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
 /*===================================
-  MAPA TRANS-INCLUYENTE (ESTÁTICO)
+       MAPA TRANS-INCLUYENTE
 ===================================*/
 .column-Mapa h2{text-align: center;}
 .column-Mapa > p{
@@ -271,6 +227,60 @@ article {
     width: 14px;
     height: 14px;
     border-radius: 50%;}
+/*===================================
+            EVENTOS
+=================================== */
+.eventos-section{
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    margin: 2em 0;
+    padding-right: 3em;
+    min-width: 0;
+    max-width: 100%;}
+.eventos-carrusel{
+    display: flex;
+    gap: 1.5em;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1em;
+    min-width: 0;}
+.evento-card{
+    flex: 0 0 auto;
+    width: calc((100% - 4.5em) / 4);
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+.evento-img {
+    width: 100%;
+    height: auto;
+    border-radius: 1em;}
+.carrusel-flecha {
+    position: absolute;
+    top: 55%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 2.5em;
+    height: 2.5em;
+    background: var(--LNB);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;}
+.carrusel-flecha:hover {background: var(--T);}
+.eventos-carrusel::-webkit-scrollbar {height: 8px;}
+.eventos-carrusel::-webkit-scrollbar-thumb {background: var(--LNB); border-radius: 4px;}
 /*===================================
    CARDS CONTAINER - ARCCHIVO VIVO
 ===================================*/
@@ -732,7 +742,7 @@ footer {
     .seccion-archivo {padding: 1em 5%;}
     .titulo-seccion {font-size: 1.4em;}
     .eventos-section {padding-right: 0;}
-    .eventos-carrusel {gap: 0;}
+    .eventos-carrusel {gap: 1em;}
     .evento-card {
         width: 100%;
         flex: 0 0 100%;
@@ -742,6 +752,7 @@ footer {
         display: block;
         margin: 1em auto 0;
         transform: none;}
+    .flecha-card {display: none;}
 }
 /*Tablets vertical*/
 @media only screen and (min-width:601px) and (orientation: portrait){
@@ -783,7 +794,7 @@ footer {
             }
                }
             }
-    main{margin-top: 8em; padding: 1em;}
+main{margin-top: 8em; padding: 1em;}
     .main-con-margen{
         margin: 8em auto 1em;
         width: 90%;
@@ -810,10 +821,8 @@ footer {
     .tarjeta-info {padding: 1.5em; margin: 0.5em;}
     .seccion-archivo {padding: 1.5em 5%;}
     .titulo-seccion {font-size: 1.6em;}
-    .evento-card {width: 280px;}
-    .eventos-carrusel {gap: 1em;}
-}
-
+    .evento-card {width: 180px;}
+    .eventos-carrusel {gap: .5em;}}
 /*Tablets horizontal*/
 @media only screen and (min-width:901px) and (max-width:1200px){
     header{
@@ -840,8 +849,12 @@ footer {
             }
                 }
     section:not(#inicio){padding: 5em 1em 1em; blockquote{width: 100%;}}
-    .column-Mapa{width: 65%;}
-    .column-NEWs{width: 30%;}
+    .column-Mapa{width: 63%;}
+    .column-NEWs{width: 28%;}
+    .eventos-carrusel {gap: 1em;}
+    .carrusel-flecha {display: none;}
+    .eventos-section {padding-right: 0;}
+    .flecha-card {display: none;}
 }
 /*Pantallas gigantes*/
 @media only screen and (min-device-width:1880px){}
