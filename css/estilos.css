@@ -160,7 +160,7 @@ article {
 .mapa-estatico{
     position: relative;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;}
 .mapa-estatico > img{
     width: 100%;
@@ -223,6 +223,9 @@ article {
     left: auto;
     right: 0;
     transform: translateX(0);}
+.pin-abajo .pin-info {
+    bottom: auto;
+    top: 160%;}
 /*===================================
             EVENTOS
 =================================== */
@@ -726,7 +729,6 @@ footer {
     flex-direction: column;}
     .column-NEWs {order: 1;}
     .column-Mapa {order: 2;}
-    .mapa-estatico {overflow: hidden;}
     .pin-info {width: 170px;font-size: 0.8em;}
     html, body {overflow-x: hidden; max-width: 100%;}
     form {
