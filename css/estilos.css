@@ -234,7 +234,6 @@ article {
     flex-direction: column;
     width: 100%;
     margin: 2em 0;
-    padding-right: 3em;
     min-width: 0;
     max-width: 100%;}
 .eventos-carrusel{
@@ -260,26 +259,53 @@ article {
     width: 100%;
     height: auto;
     border-radius: 1em;}
-.carrusel-flecha {
-    position: absolute;
-    top: 55%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 2.5em;
-    height: 2.5em;
-    background: var(--LNB);
-    color: #fff;
-    border-radius: 50%;
+.eventos-carrusel::-webkit-scrollbar {height: 8px;}
+.eventos-carrusel::-webkit-scrollbar-thumb {background: var(--LNB); border-radius: 4px;}
+/* ===================================
+        SWITCH MAYORES/MENORES DE EDAD
+   =================================== */
+.edad-toggle {display: none;}
+.switch-edad {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8em;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    transition: background 0.3s ease;}
-.carrusel-flecha:hover {background: var(--T);}
-.eventos-carrusel::-webkit-scrollbar {height: 8px;}
-.eventos-carrusel::-webkit-scrollbar-thumb {background: var(--LNB); border-radius: 4px;}
+    gap: 1em;
+    margin: 1.5em 0;}
+.switch-etiqueta {
+    font-family: var(--font-title);
+    font-weight: bold;
+    color: #999;
+    transition: color 0.3s ease;}
+.switch-track {
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 1.8em;
+    background-color: var(--RT);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;}
+.switch-thumb {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    width: 1.4em;
+    height: 1.4em;
+    background-color: var(--LNB);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);}
+/* Cuando está marcado (Menores de edad activo) */
+.edad-toggle:checked ~ .switch-edad .switch-thumb {transform: translateX(1.7em);}
+.edad-toggle:checked ~ .switch-edad .switch-track {background-color: var(--T);}
+/* Resaltar la etiqueta activa */
+.switch-etiqueta:first-of-type {color: var(--LNB);}
+.edad-toggle:checked ~ .switch-edad .switch-etiqueta:first-of-type {color: #999;}
+.edad-toggle:checked ~ .switch-edad .switch-etiqueta:last-of-type {color: var(--T);}
+/* Mostrar/ocultar contenido según el estado */
+.contenido-menores {display: none;}
+.edad-toggle:checked ~ .contenido-mayores {display: none;}
+.edad-toggle:checked ~ .contenido-menores {display: block;}
 /*===================================
    CARDS CONTAINER - ARCCHIVO VIVO
 ===================================*/
@@ -745,12 +771,6 @@ footer {
         width: 100%;
         flex: 0 0 100%;
         scroll-snap-align: center;}
-    .carrusel-flecha {
-        position: static;
-        display: block;
-        margin: 1em auto 0;
-        transform: none;}
-    .flecha-card {display: none;}
 }
 /*Tablets vertical*/
 @media only screen and (min-width:601px) and (orientation: portrait){
@@ -850,9 +870,6 @@ main{margin-top: 8em; padding: 1em;}
     .column-Mapa{width: 63%;}
     .column-NEWs{width: 28%;}
     .eventos-carrusel {gap: 1em;}
-    .carrusel-flecha {display: none;}
-    .eventos-section {padding-right: 0;}
-    .flecha-card {display: none;}
 }
 /*Pantallas gigantes*/
 @media only screen and (min-device-width:1880px){}
