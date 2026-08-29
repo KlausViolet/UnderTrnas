@@ -21,7 +21,7 @@
         <p>Y lo hacemos desde el rizoma de lxs xōchiuas (personas que portan la flor), como raíces que rompen el pavimento. Como nuestrxs ancestrxs, existen fuera del binarismo. Las flores no son frágiles; crecen en el asfalto, tejiendo un jardín de memoria donde lo que el Estado entierra, nosotrxs lo hacemos florecer como rebeldía viva.</p>
     </article>
  <!-- Guias -->
-  <h2>Guías parala coreeción de datos</h2>
+  <h2 style="text-align:center;">Guías parala coreeción de datos</h2>
     <section id="guias" class="guias-section">
        <a href="Guias.html#act-na" class="guia-card-link"> <div class="guia-card"> <div class="guia-card-content">
             <h3>Rectificación de Identidad de Género (+18)</h3> <p>Proceso para cambiar tu acta de nacimiento en CDMX.</p>
@@ -57,18 +57,19 @@
     </section>
 <!-- Mapa -->
 <section id="mapa">
-    <h2>Mapa de Espacios Trans-Incluyentes</h2>
+    <h2>Mapa Trans-Incluyente</h2>
     <div class="mapa-contenedor">
         <div class="mapa-lado">
             <div id="mapa-leaflet"></div>
         </div>
         <div class="info-lado">
             <div class="categoria-botones">
-                <button type="button" class="cat-boton" data-categoria="cuidado"> Cuidado </button>
-                <button type="button" class="cat-boton" data-categoria="cultura"> Cultura </button>
-                <button type="button" class="cat-boton" data-categoria="expresión"> Expresión </button>
-                <a href="form.html#places" class="cat-agregar" aria-label="Añade tu templo" title="Añade tu templo" onclick="window.open(this.href, 'VentanaLugar', 'width=500,height=700,scrollbars=yes,resizable=yes'); return false;">+</a>
-            </div>
+    <button type="button" class="cat-boton" data-categoria="cuidado">Cuidado</button>
+    <button type="button" class="cat-boton" data-categoria="cultura">Cultura</button>
+    <button type="button" class="cat-boton" data-categoria="expresión">Expresión</button>
+    <a href="form.html#places" class="cat-boton agregar"
+   onclick="window.open(this.href, 'VentanaLugar', 'width=500,height=700,scrollbars=yes,resizable=yes'); return false;">+</a>          
+</div>
             <div class="info-panel">
                 <article class="lugar-info" data-categoria="cuidado" data-lat="19.45206" data-lng="-99.16898">
                     <h3>Unidad de Salud Integral Trans <span class="alcaldia"> (Miguel Hidalgo)</span></h3>
@@ -277,22 +278,17 @@
                 else {window.addEventListener('load', cargarEmbedInstagram);}
         </script>
     </section>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
     const mapa = L.map('mapa-leaflet').setView([19.45206, -99.16898], 13); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors'}).addTo(mapa);
-    const iconCuidado = L.divIcon({ className: 'pin-categoria',
-        html: `<svg viewBox="0 0 24 24" width="30" height="30" fill="#e0729c"><path d="M12 21s-6.7-4.35-9.3-8.1C.8 10.2 1.4 6.6 4.3 4.9c2.2-1.3 4.9-.7 6.4 1.1.4.5 1 .5 1.4 0 1.5-1.8 4.2-2.4 6.4-1.1 2.9 1.7 3.5 5.3 1.6 8-2.6 3.75-9.3 8.1-9.3 8.1z"/></svg>`,
-        iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28]});
-    const iconExpresion = L.divIcon({ className: 'pin-categoria',
-        html: `<svg viewBox="0 0 24 24" width="30" height="30"><circle cx="12" cy="7" r="4" fill="#7b4fa0"/><line x1="12" y1="11" x2="12" y2="19" stroke="#7b4fa0" stroke-width="2.5"/><line x1="8" y1="15" x2="16" y2="15" stroke="#7b4fa0" stroke-width="2.5"/><line x1="9" y1="19" x2="15" y2="23" stroke="#7b4fa0" stroke-width="2.5"/><line x1="15" y1="19" x2="9" y2="23" stroke="#7b4fa0" stroke-width="2.5"/></svg>`,
-        iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28]});
-    const iconCultura = L.divIcon({className: 'pin-categoria',
-        html: `<svg viewBox="0 0 24 24" width="30" height="30" fill="#1a1a1a"><path d="M4 9h3.17A2 2 0 0 1 9 7a2 2 0 0 1-1.83-2H4a1 1 0 0 0-1 1v3a2 2 0 0 1 2 2 2 2 0 0 1-2 2v3a1 1 0 0 0 1 1h3.17A2 2 0 0 1 9 17a2 2 0 0 1 2 2h2a2 2 0 0 1 2-2 2 2 0 0 1 1.83 2H20a1 1 0 0 0 1-1v-3a2 2 0 0 1-2-2 2 2 0 0 1 2-2V6a1 1 0 0 0-1-1h-3.17A2 2 0 0 1 15 7a2 2 0 0 1-2-2h-2a2 2 0 0 1-2 2A2 2 0 0 1 7 9H4z"/></svg>`,
-        iconSize: [30, 30], iconAnchor: [15, 30], popupAnchor: [0, -28]});
-    // Unidad de Salud Integral Trans 
-    const marcador1 = L.marker([19.45206, -99.16898]).addTo(mapa); marcador1.
-    bindPopup (`<strong>Unidad de Salud Integral Trans</strong><br>Plan de San Luis & Manuel Carpio, Casco de Santo Tomás, Santo Tomás, Miguel Hidalgo, 11340 Ciudad de México, CDMX`);
-    // Clínica Especializada Condesa
+    const iconCuidado = L.icon({  iconUrl: 'img/c.png', iconSize: [40, 50],  iconAnchor: [20, 50], popupAnchor: [0, -45]});
+    const iconExpresion = L.icon({ iconUrl: 'img/cul.png', iconSize: [40, 50], iconAnchor: [20, 50], popupAnchor: [0, -45]});
+    const iconCultura = L.icon({ iconUrl: 'img/e.png', iconSize: [40, 50], iconAnchor: [20, 50], popupAnchor: [0, -45]}); 
+
+        // Unidad de Salud Integral Trans 
+        const marcador1 = L.marker([19.45206, -99.16898]).addTo(mapa); marcador1.
+        bindPopup (`<strong>Unidad de Salud Integral Trans</strong><br>Plan de San Luis & Manuel Carpio, Casco de Santo Tomás, Santo Tomás, Miguel Hidalgo, 11340 Ciudad de México, CDMX`);
+        // Clínica Especializada Condesa
     const marcador2 = L.marker([19.40896, -99.18239]).addTo(mapa); 
     marcador2.bindPopup (`<strong>Clínica Especializada Condesa</strong><br>Gral. Benjamín Hill 24, Colonia Condesa, Alcaldía Cuauhtémoc, CDMX`);
     // Clínica Condesa Iztapalapa
@@ -352,24 +348,24 @@
     // Dancing Queer MX
     const marcador21 = L.marker([19.40642, -99.16343]).addTo(mapa);
     marcador21.bindPopup(`<strong>Dancing Queer MX</strong><br>Medellín 295-A, Roma Sur, Cuauhtémoc, 06760 Ciudad de México, CDMX`);
-    // Club Roshell
-    const marcador22 = L.marker([19.39679, -99.14120]).addTo(mapa);
-    marcador22.bindPopup(`<strong>Club Roshell</strong><br>Aragón 75, Colonia Álamos, Alcaldía Benito Juárez, CDMX`);
-    // Cross House México
-    const marcador23 = L.marker([19.42323, -99.16981]).addTo(mapa);
-    marcador23.bindPopup(`<strong>Cross House México</strong><br>Biarritz 13, Colonia Juárez, 06600 Alcaldía Cuauhtémoc, CDMX`);
-    // Barbería Gato Negro
-    const marcador24 = L.marker([19.40962, -99.14080]).addTo(mapa);
-    marcador24.bindPopup(`<strong>Barbería Gato Negro</strong><br>Antonio Solís 69A, Colonia Obrera, 06800 Alcaldía Cuauhtémoc, CDMX`);
-    // Nattalia's Palace
-    const marcador25 = L.marker([19.46256, -99.11627]).addTo(mapa);
-    marcador25.bindPopup(`<strong>Nattalia's Palace</strong><br>Nte 54-A 3819, Colonia Emiliano Zapata, 07889 Alcaldía Gustavo A. Madero, CDMX`);
-    // Diablites Klub
-    const marcador26 = L.marker([19.41836, -99.14463]).addTo(mapa);
-    marcador26.bindPopup(`<strong>Diablites Klub</strong><br>Doctores, 06720 Ciudad de México, CDMX`);
-    // Casa La Five
-    const marcador27 = L.marker([19.36548, -99.14425]).addTo(mapa);
-    marcador26.bindPopup(`<strong>Casa La Five</strong><br>Alhambra 608, Portales Nte, Benito Juárez, 03303 Ciudad de México, CDMX`);    
+// Casa La Five
+const marcador22 = L.marker([19.36548, -99.14425]).addTo(mapa);
+marcador22.bindPopup(`<strong>Casa La Five</strong><br>Alhambra 608, Portales Nte, Benito Juárez, 03303 Ciudad de México, CDMX`);
+// Club Roshell
+const marcador23 = L.marker([19.39679, -99.14120]).addTo(mapa);
+marcador23.bindPopup(`<strong>Club Roshell</strong><br>Aragón 75, Colonia Álamos, Alcaldía Benito Juárez, CDMX`);
+// Cross House México
+const marcador24 = L.marker([19.42323, -99.16981]).addTo(mapa);
+marcador24.bindPopup(`<strong>Cross House México</strong><br>Biarritz 13, Colonia Juárez, 06600 Alcaldía Cuauhtémoc, CDMX`);
+// Barbería Gato Negro
+const marcador25 = L.marker([19.40962, -99.14080]).addTo(mapa);
+marcador25.bindPopup(`<strong>Barbería Gato Negro</strong><br>Antonio Solís 69A, Colonia Obrera, 06800 Alcaldía Cuauhtémoc, CDMX`);
+// Nattalia's Palace
+const marcador26 = L.marker([19.46256, -99.11627]).addTo(mapa);
+marcador26.bindPopup(`<strong>Nattalia's Palace</strong><br>Nte 54-A 3819, Colonia Emiliano Zapata, 07889 Alcaldía Gustavo A. Madero, CDMX`);
+// Diablites Klub
+const marcador27 = L.marker([19.41836, -99.14463]).addTo(mapa);
+marcador27.bindPopup(`<strong>Diablites Klub</strong><br>Doctores, 06720 Ciudad de México, CDMX`);
 </script>
 <script>
     const marcadores = [
@@ -413,41 +409,19 @@
     lugares.forEach((lugar, indice) => {
     const marcador = marcadores[indice];
     lugar.addEventListener('click', () => {
-
         const lat = parseFloat(lugar.dataset.lat);
         const lng = parseFloat(lugar.dataset.lng);
-
-        mapa.flyTo([lat, lng], 17, {
-            duration: 1.5
-        });
-
+        mapa.flyTo([lat, lng], 17, {duration: 1.5});
         marcador.openPopup();
-
-        lugares.forEach(item => {
-            item.classList.remove('lugar-activo');
-        });
-
-        lugar.classList.add('lugar-activo');
-    });
-
+        lugares.forEach(item => {item.classList.remove('lugar-activo');});
+        lugar.classList.add('lugar-activo');});
     /* MAPA → CUADRO */
-    marcador.on('click', () => {
-
-        lugar.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
+        marcador.on('click', () => {lugar.scrollIntoView({behavior: 'smooth',block: 'center'});
+        lugares.forEach(item => {item.classList.remove('lugar-activo');});
+        lugar.classList.add('lugar-activo');});
         });
-
-        lugares.forEach(item => {
-            item.classList.remove('lugar-activo');
-        });
-
-        lugar.classList.add('lugar-activo');
-    });
-
-});
 /* Filtro por categoría: Cuidado / Cultura / Expresión */
-const botonesCategoria = document.querySelectorAll('.cat-boton');
+const botonesCategoria = document.querySelectorAll('.cat-boton:not(.agregar)');
 botonesCategoria.forEach(boton => {
     boton.addEventListener('click', () => {
         const yaActivo = boton.classList.contains('activo');
@@ -476,7 +450,6 @@ botonesCategoria.forEach(boton => {
         });
     });
 });
-</script>
 </script>
 </main>
 <nav class="bottom-nav">
