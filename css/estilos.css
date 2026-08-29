@@ -502,8 +502,8 @@ main.guias-tabs {
 #mapa {
     width: 100%;
     padding: 3em 3%;
-    box-sizing: border-box;}
-
+    box-sizing: border-box;
+}
 #mapa > h2 {
     width: 100%;
     text-align: center;
@@ -511,8 +511,7 @@ main.guias-tabs {
     font-family: var(--font-title);
     font-size: 2.5em;
     line-height: 1.2;
-    margin: 0 0 1.2em 0;}
-
+    margin: 0 0 0.5em 0;}
 .categoria-botones {
     width: 100%;
     margin: 0 0 1em;
@@ -531,15 +530,9 @@ main.guias-tabs {
     font-size: 1em;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;}
-
-.cat-boton:hover {
+.cat-boton:hover, .cat-boton.activo {
     background: var(--LNB);
     color: white;}
-
-.cat-boton.activo {
-    background: var(--LNB);
-    color: white;}
-
 .cat-agregar {
     width: 2.7em;
     height: 2.7em;
@@ -555,7 +548,6 @@ main.guias-tabs {
     font-weight: bold;
     box-sizing: border-box;
     transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;}
-
 .cat-agregar:hover {
     background: var(--LNB);
     color: white;
@@ -568,15 +560,16 @@ main.guias-tabs {
     align-items: stretch;}
 .mapa-lado {
     width: 100%;
-    height: min(600px, 65vh);
-    min-width: 0;}
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border: 3px solid var(--LNB);
+    border-radius: 1.2em;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(120, 60, 150, 0.25);}
 #mapa-leaflet {
     width: 100%;
-    height: 100%;
-    border: 2px solid var(--LNB);
-    border-radius: 1em;
-    overflow: hidden;
-    box-sizing: border-box;}
+    height: 100%;}
 .info-lado {
     width: 100%;
     height: min(600px, 65vh);
@@ -606,13 +599,10 @@ main.guias-tabs {
     background: transparent;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;}
-.lugar-info:hover {
-    transform: translateY(-2px);}
-.lugar-info.lugar-activo {
-    box-shadow: 0 0 0 3px rgba(190, 140, 225, 0.25);}
+.lugar-info:hover { transform: translateY(-2px); }
+.lugar-info.lugar-activo { box-shadow: 0 0 0 3px rgba(190, 140, 225, 0.25); }
 .lugar-info h3 {
     margin: 0 0 0.6em 0;
-    color: none;
     font-family: var(--font-title);
     font-size: 1.25em;
     line-height: 1.2;}
@@ -626,15 +616,23 @@ main.guias-tabs {
     color: #000;
     font-size: 1em;
     line-height: 1.5;}
-.info-panel::-webkit-scrollbar {width: 10px;}
-.info-panel::-webkit-scrollbar-track {background: transparent;}
-.info-panel::-webkit-scrollbar-thumb {
-    background: var(--LNB);
-    border-radius: 10px;}
-.info-panel {
-    scrollbar-color: var(--LNB) transparent;
-    scrollbar-width: thin;}
+.info-panel::-webkit-scrollbar { width: 10px; }
+.info-panel::-webkit-scrollbar-track { background: transparent; }
+.info-panel::-webkit-scrollbar-thumb { background: var(--LNB); border-radius: 10px; }
+.info-panel { scrollbar-color: var(--LNB) transparent; scrollbar-width: thin; }
 .pin-categoria svg { display: block; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35)); }
+.leaflet-popup-content-wrapper {
+    max-width: 220px;
+    min-width: 190px;
+}
+.leaflet-popup-content {
+    margin: 8px 10px;
+    font-size: 0.75em;
+    line-height: 1.3;
+}
+.leaflet-popup-close-button {
+    font-size: 1.1em;
+}
 /*===================================
             EVENTOS
 =================================== */
@@ -1109,53 +1107,47 @@ h1 a, h2 a, h3 a, h4 a { color: var(--LNB) !important; }
                     font-size: 0.9em;
                     line-height: 1;
                     padding: 0.5em;
-                    text-align: center;}}}
-    }
+                    text-align: center;}}}}
     main{margin-top: 7em; padding: 1em;}
     .main-con-margen{margin: 7em auto 1em;width: 90%; max-width: 100%;}
     section:not(#inicio){ padding: 1em;  blockquote{width: 100%;}}
     article{flex-direction: column; gap: 1em;}
-    #mapa {padding: 2em 4%;}
     #mapa {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;}
-#mapa > h2 {
-    order: -1;
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 2em;
-    line-height: 1.1;
-    margin: 0 0 1em;}
-.mapa-contenedor {
-    grid-template-columns: 1fr;
-    gap: 1.2em;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;}
-.mapa-lado {
-    height: 320px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;}
-.info-lado {
-    height: 310px;
+        padding: 2em 4%;
+        display: grid;
+        grid-template-areas:
+            "titulo"
+            "botones"
+            "mapa"
+            "info";
+        gap: 0.8em;
+        overflow: hidden;}
+    #mapa > h2 {
+        grid-area: titulo;
+        width: 100%;
+        text-align: center;
+        font-size: 1.6em;
+        line-height: 1.2;
+        margin: 0;}
+    .mapa-contenedor {display: contents;}
+    .mapa-lado {
+    grid-area: mapa;
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    height: 260px;
+    aspect-ratio: unset;
+    border: 3px solid var(--LNB);
+    border-radius: 1em;
     overflow: hidden;}
-.info-panel {
-    height: 100%;
-    max-height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    box-sizing: border-box;}
+    .info-lado { display: contents; }
     .categoria-botones {
+        grid-area: botones;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
-        gap: 0.5em;}
+        gap: 0.5em;
+        margin: 0;}
     .cat-boton {
         font-size: 0.7em;
         padding: 0.4em 0.9em;
@@ -1165,29 +1157,18 @@ h1 a, h2 a, h3 a, h4 a { color: var(--LNB) !important; }
         height: 2em;
         font-size: 0.85em;
         flex-shrink: 0;}
-    #mapa {display: flex; flex-direction: column;}
-    #mapa > h2 {order: 1;}
-    .mapa-contenedor {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "botones"
-            "mapa"
-            "info";
-        gap: 1em;}
-    .info-lado {display: contents;}
-    .categoria-botones {grid-area: botones; margin: 0;}
-    .mapa-lado {grid-area: mapa; height: 320px;}
     .info-panel {
         grid-area: info;
-        height: 380px;
+        height: 200px;
+        max-height: 200px;
         overflow-y: auto;
-        overflow-x: hidden;}
-    .info-panel {padding: 0.75em;}
-    .lugar-info {padding: 0.8em; margin-bottom: 0.7em;}
-    .lugar-info h3 {font-size: 0.95em; margin-bottom: 0.4em;}
-    .alcaldia {font-size: 0.65em;}
-    .lugar-info .descripcion {font-size: 0.8em; line-height: 1.4;}
+        overflow-x: hidden;
+        box-sizing: border-box;
+        padding: 0.75em;}
+    .lugar-info { padding: 0.8em; margin-bottom: 0.7em; }
+    .lugar-info h3 { font-size: 0.95em; margin-bottom: 0.4em; }
+    .alcaldia { font-size: 0.65em; }
+    .lugar-info .descripcion { font-size: 0.8em; line-height: 1.4; }
     section {flex-direction: column;}
     html, body {overflow-x: hidden; max-width: 100%;}
     form {
@@ -1235,7 +1216,6 @@ h1 a, h2 a, h3 a, h4 a { color: var(--LNB) !important; }
         z-index: 999;
         cursor: pointer;}
 }
-
 /* Celulares en horizontal */
 @media only screen and (max-height: 500px) and (orientation: landscape) {
     .header-container {
@@ -1249,22 +1229,32 @@ h1 a, h2 a, h3 a, h4 a { color: var(--LNB) !important; }
         overflow-x: auto;
         width: 100%;
         justify-content: flex-start;}
+     section:not(#inicio){padding-top: .5em;}
     .cat-boton {
         flex-shrink: 0;
         font-size: 0.75em;
         padding: 0.4em 0.8em;
         white-space: nowrap;}
     .mapa-contenedor {
+        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.8em;}
-    .mapa-lado {height: 340px;}
-    .info-lado {height: 340px;}
-    .info-panel {padding: 0.5em;}
-    #mapa > h2 {font-size: 1em; margin-bottom: 0.4em;}
-    .lugar-info {padding: 0.5em; margin-bottom: 0.4em;}
-    .lugar-info h3 {font-size: 0.75em; margin-bottom: 0.25em;}
-    .alcaldia {font-size: 0.55em;}
-    .lugar-info .descripcion {font-size: 0.62em; line-height: 1.25;}
+        gap: 0.8em;
+        align-items: stretch;}
+     .mapa-lado {
+        width: 100%;
+        height: 340px;
+        min-width: 0;}
+    .info-lado {
+        display: flex;
+        flex-direction: column;
+        height: 340px;
+        min-width: 0;}
+    .info-panel {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0.75em;}
     .header-container {
         display: flex;
         flex-direction: column;
@@ -1321,6 +1311,8 @@ h1 a, h2 a, h3 a, h4 a { color: var(--LNB) !important; }
         margin: 1em auto;
         width: 90%;
         max-width: 100%;}
+    .mapa-lado {max-width: 100%;}
+    .info-lado {height: 500px;}
     section:not(#inicio){padding: 1em; blockquote{width: 100%;}}
     .categoria-botones {justify-content: center;}
     .cat-boton[for="cat-todos"] {display: none;}
@@ -1387,7 +1379,7 @@ h1 a, h2 a, h3 a, h4 a { color: var(--LNB) !important; }
             li{a{display: block;   font-size: 0.9em;   white-space: nowrap;}}
         }
     }
-    section:not(#inicio){padding: 5em 1em 1em; blockquote{width: 100%;}}
+    section:not(#inicio){padding-top:1em;}
     .eventos-carrusel {gap: 1em;}}
 /*Pantallas gigantes*/
 @media only screen and (min-device-width:1880px){}
