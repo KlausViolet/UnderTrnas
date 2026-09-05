@@ -70,11 +70,6 @@
                     <textarea id="descripcion-espacio" name="descripcion_lugar" class="campo" placeholder="¿Qué hace a este lugar trans-incluyente o seguro?"></textarea>
                 </section>
 
-                <section id="SubirMultimedia-lugar">
-                    <h3>Sube tu material</h3>
-                    <label for="multimedia-lugar">Foto principal del lugar *</label>
-                    <input type="file" id="multimedia-lugar" name="archivo_principal" required>
-                </section>
             </fieldset>
             <button type="submit" class="boton-enviar">ENVIAR</button>
         </form>
@@ -174,5 +169,37 @@
             <button type="submit" class="boton-enviar">ENVIAR</button>
         </form>
     </div>
+    
+    <div id="retiro" class="seccion-formulario">
+    <form action="https://usebasin.com/f/2de84737489c" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="[UnderTrans] Solicitud sobre imagen" />
+        <fieldset>
+            <section id="Retiro-Datos">
+                <h3>Solicitud sobre tu imagen</h3>
+ 
+                <label for="contacto-retiro">Correo o teléfono de contacto</label>
+                <input type="text" id="contacto-retiro" name="contacto" placeholder="tucorreo@ejemplo.com o 55XXXXXXXX" required class="campo">
+ 
+                <label for="referencia-foto">¿Cuál foto o evento es? (número, marcha o fecha aproximada)</label>
+                <input type="text" id="referencia-foto" name="referencia_foto" placeholder="Ej. Foto 12, Visibilidad Trans 31 marzo 2026" required class="campo">
+ 
+                <p>¿Qué necesitas?</p>
+                <ul>
+                    <li>
+                        <input id="accion-retirar" name="accion_solicitada" type="radio" value="retirar" required>
+                        <label for="accion-retirar"><span></span>Que retiren la imagen del archivo</label>
+                    </li>
+                    <li>
+                        <input id="accion-enviar" name="accion_solicitada" type="radio" value="enviar" required>
+                        <label for="accion-enviar"><span></span>Que me envíen la imagen</label>
+                    </li>
+                </ul>
+ 
+                <label for="mensaje-retiro">Detalles adicionales</label>
+                <textarea id="mensaje-retiro" name="mensaje" class="campo" placeholder="Cualquier información que ayude a identificar la imagen" required></textarea>
+            </section>
+        </fieldset>
+        <button type="submit" class="boton-enviar">ENVIAR SOLICITUD</button>
+    </form></div>
 </body>
 </html>
